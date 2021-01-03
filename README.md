@@ -13,7 +13,8 @@
     - [x] `tsc` 명령어로 타입스크립트 컴파일 하기
 3. typscript 명시적인 `any` 선언 하기
     - `tsconfig.json` 파일에 `noImplicitAby` 추가
-4. dependency vs devDependency
+    - 타입 구체화 작업 진행
+
 
 
 
