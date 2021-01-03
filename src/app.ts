@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {} from 'chart';
+import { Chart } from 'chart.js';
 // utils
 const $ = (selector: string) => document.querySelector(selector);
 const getUnixTimestamp = (date: Date) => new Date(date).getTime();

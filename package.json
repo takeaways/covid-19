@@ -13,7 +13,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.21.1"
+    "@types/chart.js": "^2.9.29",
+    "axios": "^0.21.1",
+    "chart.js": "^2.9.4"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",

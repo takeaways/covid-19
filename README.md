@@ -14,7 +14,7 @@
 3. typscript 명시적인 `any` 선언 하기
     - `tsconfig.json` 파일에 `noImplicitAby` 추가
     - 타입 구체화 작업 진행
-
+4. 외부 라이브러리 모듈화 
 
 
 
