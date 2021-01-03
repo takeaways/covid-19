@@ -1,10 +1,6 @@
 // utils
-function $(selector: string) {
-  return document.querySelector(selector);
-}
-function getUnixTimestamp(date: Date) {
-  return new Date(date).getTime();
-}
+const $ = (selector: string) => document.querySelector(selector);
+const getUnixTimestamp = (date: Date) => new Date(date).getTime();
 
 // DOM
 const confirmedTotal = $('.confirmed-total') as HTMLSpanElement;
@@ -36,13 +32,10 @@ function createSpinnerElement(id: string) {
 let isDeathLoading = false;
 const isRecoveredLoading = false;
 
-function fetchCovidSummary() {
+const fetchCovidSummary = () => {
   const url = 'https://api.covid19api.com/summary';
   return axios.get(url);
-}
-fetchCovidSummary().then((res: any) => {
-  res.Country;
-});
+};
 
 enum CovidStatus {
   Confirmed = 'confirmed',
@@ -55,15 +48,15 @@ function fetchCountryInfo(countryCode: string, status: CovidStatus) {
 }
 
 // methods
-function startApp() {
+const startApp = () => {
   setupData();
   initEvents();
-}
+};
 
 // events
-function initEvents() {
+const initEvents = () => {
   rankList.addEventListener('click', handleListClick);
-}
+};
 
 async function handleListClick(event: any) {
   let selectedId;
@@ -148,9 +141,9 @@ function setRecoveredList(data: any) {
   });
 }
 
-function clearRecoveredList() {
+const clearRecoveredList = () => {
   recoveredList.innerHTML = null;
-}
+};
 
 function setTotalRecoveredByCountry(data: any) {
   recoveredTotal.innerText = data[0].Cases;
@@ -166,16 +159,16 @@ function endLoadingAnimation() {
   recoveredList.removeChild(recoveredSpinner);
 }
 
-async function setupData() {
+const setupData = async () => {
   const { data } = await fetchCovidSummary();
   setTotalConfirmedNumber(data);
   setTotalDeathsByWorld(data);
   setTotalRecoveredByWorld(data);
   setCountryRanksByConfirmedCases(data);
   setLastUpdatedTimestamp(data);
-}
+};
 
-function renderChart(data: any, labels: any) {
+const renderChart = (data: any, labels: any) => {
   const ctx = $('#lineChart').getContext('2d');
   Chart.defaults.global.defaultFontColor = '#f5eaea';
   Chart.defaults.global.defaultFontFamily = 'Exo 2';
@@ -194,7 +187,7 @@ function renderChart(data: any, labels: any) {
     },
     options: {},
   });
-}
+};
 
 function setChartData(data: any) {
   const chartData = data.slice(-14).map((value: any) => value.Cases);
@@ -247,8 +240,8 @@ function setCountryRanksByConfirmedCases(data: any) {
   });
 }
 
-function setLastUpdatedTimestamp(data: any) {
+const setLastUpdatedTimestamp = (data: any) => {
   lastUpdatedTime.innerText = new Date(data.Date).toLocaleString();
-}
+};
 
 startApp();

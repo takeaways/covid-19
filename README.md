@@ -17,13 +17,15 @@
 
 
 
-## 참고 자료
-### ESLint
-1. 필요 패키지 설치
+## 개발환경 셋팅하기
+
+1. 패키지 설치 하기
 ```bash
 npm i -D typescript @babel/core @babel/preset-env @babel/preset-typescript @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint prettier eslint-plugin-prettier
 ```
-2. 설치후 개발환경 셋팅
+2. 설치 후 개발환경 셋팅
+
+### ESLint
 ```js
 // .eslintrc.js
 module.exports = {
@@ -73,6 +75,14 @@ setting.json // onsave 꺼주세요 충돌 나지 않도록
       "typescript"
   ],
 ```
+### Babel
+- 최신의 자바스크립트를 모든 브라우져가 호환 할 수 없기 때문에 브라우져가 호환 할 수 있는 자바스크립트 문법으로 변환해주는 도구
+- 플러그인 옵션 < 프리셋 (플러그인의 집합)
+
+### prettier
+- 코드 포멧에 사용된다.
+- eslint plugin prettier를 설치했기 때문에 eslint에서 prittier설정을 할 수 있다.
+- 같이 사용하면 팀 컨벤션을 맞추는게 더 좋다고 합니다.
 
 ## API 자료
 
