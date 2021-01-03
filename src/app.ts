@@ -17,7 +17,7 @@ const recoveredList = $('.recovered-list');
 const deathSpinner = createSpinnerElement('deaths-spinner');
 const recoveredSpinner = createSpinnerElement('recovered-spinner');
 
-function createSpinnerElement(id:any) {
+function createSpinnerElement(id: string) {
   const wrapperDiv = document.createElement('div');
   wrapperDiv.setAttribute('id', id);
   wrapperDiv.setAttribute(
@@ -45,8 +45,12 @@ fetchCovidSummary().then((res:any)=>{
   res.Country
 })
 
-function fetchCountryInfo(countryCode:any, status:any) {
-  // params: confirmed, recovered, deaths
+enum CovidStatus{
+  Confirmed = 'confirmed',
+  Recovered = 'recovered',
+  Deaths = 'deaths',
+}
+function fetchCountryInfo(countryCode:string, status:CovidStatus) {
   const url = `https://api.covid19api.com/country/${countryCode}/status/${status}`;
   return axios.get(url);
 }
